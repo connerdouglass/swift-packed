@@ -1,6 +1,6 @@
 import Foundation
 
-func PackedTime(_ value: inout Date) -> Packed {
+public func PackedTime(_ value: inout Date) -> Packed {
     return withUnsafeMutablePointer(to: &value) { ptr in
         return NewEncodeDecode(
             encode: {

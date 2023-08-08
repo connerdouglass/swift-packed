@@ -1,7 +1,7 @@
 import Foundation
 
 // PackedSlice represents a slice of values. The first byte of an encoded slice is the length of the slice.
-func PackedSlice<T: DefaultValue>(children: @escaping PackedType<T>) -> PackedType<[T]> {
+public func PackedSlice<T: DefaultValue>(children: @escaping PackedType<T>) -> PackedType<[T]> {
     return { value in
         return withUnsafeMutablePointer(to: &value) { ptr in
             return NewEncodeDecode(
@@ -48,7 +48,7 @@ func PackedSlice<T: DefaultValue>(children: @escaping PackedType<T>) -> PackedTy
 
 // PackedArray represents an array of values. The encoded values are concatenated. Although this can technically be used
 // with slices, you should only use it if the length is truly fixed, and known at compile time.
-func PackedArray<T: DefaultValue>(children: @escaping PackedType<T>) -> PackedType<[T]> {
+public func PackedArray<T: DefaultValue>(children: @escaping PackedType<T>) -> PackedType<[T]> {
     return { value in
         let size = value.count
         return withUnsafeMutablePointer(to: &value) { ptr in

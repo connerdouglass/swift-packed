@@ -1,5 +1,5 @@
 import Foundation
 
-enum PackedError: Error {
+public enum PackedError: Error {
     case InvalidLength
 }

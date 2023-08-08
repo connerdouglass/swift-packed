@@ -1,6 +1,6 @@
 import Foundation
 
-func PackedUUID(_ value: inout UUID) -> Packed {
+public func PackedUUID(_ value: inout UUID) -> Packed {
         return withUnsafeMutablePointer(to: &value) { ptr in
         return NewEncodeDecode(
             encode: {

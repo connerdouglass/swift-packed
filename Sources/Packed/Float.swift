@@ -1,7 +1,7 @@
 import Foundation
 
 // PackedFloat32 represents a 32-bit Float value. The encoded value is the IEEE 754 binary representation of the Float.
-func PackedFloat32(_ value: inout Float) -> Packed {
+public func PackedFloat32(_ value: inout Float) -> Packed {
     return withUnsafeMutablePointer(to: &value) { ptr in
         return NewEncodeDecode(
             encode: {
@@ -21,7 +21,7 @@ func PackedFloat32(_ value: inout Float) -> Packed {
 }
 
 // PackedFloat64 represents a 64-bit Float value. The encoded value is the IEEE 754 binary representation of the Double.
-func PackedFloat64(_ value: inout Double) -> Packed {
+public func PackedFloat64(_ value: inout Double) -> Packed {
     return withUnsafeMutablePointer(to: &value) { ptr in
         return NewEncodeDecode(
             encode: {

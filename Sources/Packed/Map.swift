@@ -2,7 +2,7 @@ import Foundation
 
 // PackedMap represents a map. The encoded value is a sequence of key-value pairs, where each key and value
 // is encoded using the provided key and value type encoders.
-func PackedMap<K: DefaultValue, V: DefaultValue>(keys: @escaping PackedType<K>, values: @escaping PackedType<V>) -> PackedType<[K: V]> {
+public func PackedMap<K: DefaultValue, V: DefaultValue>(keys: @escaping PackedType<K>, values: @escaping PackedType<V>) -> PackedType<[K: V]> {
     return { value in
         return withUnsafeMutablePointer(to: &value) { ptr in
             return NewEncodeDecode(
